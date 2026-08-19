@@ -14,6 +14,8 @@ npm run dev     # http://localhost:3000
 ```
 app/
   layout.tsx            fonts + <html>
+  icon.png              favicon (96px Metal Labs mark)
+  apple-icon.png        home-screen icon (180px)
   globals.css           design tokens, lifted from the Tarsha landing page
   page.tsx              renders <VoiceLibrary headingLevel="h1" brand={<BrandLockup />} />
 components/
@@ -38,6 +40,12 @@ scripts/
 wordmark set in Merriweather bold — the same pairing that project's navbar
 uses, scaled well up from its 28px nav treatment so it reads as the page's
 brand. `app/page.tsx` passes it to `VoiceLibrary` through the `brand` slot.
+
+The same mark is the site icon: `app/icon.png` and `app/apple-icon.png` are
+generated from it via Next's App Router file convention, so Next emits the
+`<link rel="icon">` tags itself. To regenerate after a logo change, resize
+`public/brand/logo.png` to 96px and 180px squares (trim the ~15px transparent
+margin first so the sphere fills the tab icon).
 
 ## Dropping the section into the main site
 
